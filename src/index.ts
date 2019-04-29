@@ -1,7 +1,3 @@
-export function hoge(str: string): number {
-  return str.length;
-}
-
 export class PromiseLimiter {
   private n: number;
   private release?: () => void;
@@ -16,14 +12,20 @@ export class PromiseLimiter {
         this.release = () => {
           this.n--;
           const promise = asyncFunc();
-          promise.finally(() => this.doRelease());
+          promise.then(
+            () => this.doRelease(),
+            () => this.doRelease()
+          );
           resolve({promise});
         };
       });
     } else {
       this.n--;
       const promise = asyncFunc();
-      promise.finally(() => this.doRelease());
+      promise.then(
+        () => this.doRelease(),
+        () => this.doRelease()
+      );
       return Promise.resolve({promise});
     }
   }
