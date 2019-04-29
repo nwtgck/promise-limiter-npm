@@ -1,7 +1,3 @@
-export function hoge(str: string): number {
-  return str.length;
-}
-
 export class PromiseLimiter {
   private n: number;
   private release?: () => void;
