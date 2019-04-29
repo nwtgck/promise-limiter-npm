@@ -7,6 +7,14 @@ Simultaneous Promise Execution Limiter
 `PromiseLimiter` takes **less memory resource**. `PromiseLimiter` does not use a queue of `Promise` to restrict the number of executions.
 `PromiseLimiter` uses `await` to block rest of promises. So it takes less memory even if the length of the array bellow is large or using infinite [`ReadableStream`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream). 
 
+## Installation
+
+Install by npm from this GitHub repository
+
+```bash
+npm install -S git+https://github.com/nwtgck/promise-limiter-npm#v0.1.0
+```
+
 ## Usage
 
 Here is an usage.
