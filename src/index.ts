@@ -12,14 +12,20 @@ export class PromiseLimiter {
         this.release = () => {
           this.n--;
           const promise = asyncFunc();
-          promise.finally(() => this.doRelease());
+          promise.then(
+            () => this.doRelease(),
+            () => this.doRelease()
+          );
           resolve({promise});
         };
       });
     } else {
       this.n--;
       const promise = asyncFunc();
-      promise.finally(() => this.doRelease());
+      promise.then(
+        () => this.doRelease(),
+        () => this.doRelease()
+      );
       return Promise.resolve({promise});
     }
   }
