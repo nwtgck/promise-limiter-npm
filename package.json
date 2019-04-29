@@ -1,0 +1,33 @@
+{
+  "name": "promise-limiter",
+  "version": "0.1.0",
+  "description": "Simultaneous Promise Execution Limiter",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "mocha --require ts-node/register --timeout 10000 test/**/*.ts"
+  },
+  "keywords": [
+    "promise",
+    "semaphore",
+    "limit",
+    "mutual-exclusion"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nwtgck/promise-limiter-npm"
+  },
+  "author": "Ryo Ota",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^10.14.6",
+    "@types/power-assert": "^1.5.0",
+    "mocha": "^5.2.0",
+    "power-assert": "^1.6.1",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.4.5"
+  }
+}
