@@ -1,10 +1,7 @@
 export class PromiseLimiter {
-  private n: number;
   private release?: () => void;
 
-  constructor(n: number) {
-    this.n = n;
-  }
+  constructor(private n: number) { }
 
   public run<T>(asyncFunc: () => Promise<T>): Promise<{promise: Promise<T>}> {
     if (this.n === 0) {
