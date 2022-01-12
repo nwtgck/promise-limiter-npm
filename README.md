@@ -1,5 +1,5 @@
 # promise-limiter
-[![CircleCI](https://circleci.com/gh/nwtgck/promise-limiter-npm.svg?style=shield)](https://circleci.com/gh/nwtgck/promise-limiter-npm)
+[![Node CI](https://github.com/nwtgck/promise-limiter-npm/actions/workflows/ci.yml/badge.svg)](https://github.com/nwtgck/promise-limiter-npm/actions/workflows/ci.yml)
 
 Simultaneous Promise Execution Limiter
 
