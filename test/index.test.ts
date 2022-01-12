@@ -56,4 +56,26 @@ describe('PromiseLimiter', () => {
     // All promise result
     assert.deepStrictEqual(await Promise.all(promises), ['A', 'B', 'C', 'D', 'E', 'F']);
   });
+
+  it('should not fail when async function in .run() failed', async () => {
+    const promiseLimiter = new PromiseLimiter(3);
+
+    const promises: Promise<number>[] = [];
+    for (let i = 0; i < 5; i++) {
+      // Execute
+      const {promise} = await promiseLimiter.run(async () => {
+        if (i % 2 == 1) throw new Error(`on-purpose error: ${i}`);
+        return i;
+      });
+      // Push promise
+      promises.push(promise);
+    }
+
+    assert.strictEqual(promises.length, 5);
+    assert.strictEqual(await promises[0], 0);
+    assert.strictEqual(await promises[1].catch(e => e.message), `on-purpose error: 1`);
+    assert.strictEqual(await promises[2], 2);
+    assert.strictEqual(await promises[3].catch(e => e.message), `on-purpose error: 3`);
+    assert.strictEqual(await promises[4], 4);
+  });
 });
