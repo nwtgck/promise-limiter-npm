@@ -22,10 +22,10 @@
   "author": "Ryo Ota",
   "license": "MIT",
   "devDependencies": {
-    "@types/mocha": "^5.2.6",
+    "@types/mocha": "^10.0.1",
     "@types/node": "^16.11.31",
     "@types/power-assert": "^1.5.8",
-    "mocha": "^5.2.0",
+    "mocha": "^10.2.0",
     "power-assert": "^1.6.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.6.3"
